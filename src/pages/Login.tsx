@@ -1,4 +1,5 @@
 import "../App.css";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -30,7 +31,7 @@ export default function Login() {
         </form>
 
         <div className="auth-footer">
-          Don't have an account? <span className="auth-link">Request Now</span>
+          Don't have an account? <Link to="/register" className="auth-link">Register</Link>
         </div>
       </div>
     </div>

@@ -1,11 +1,13 @@
 import "../App.css";
+import { Link } from "react-router-dom";
+
 
 export default function Register() {
   return (
     <div className="auth-container">
       <div className="auth-card">
         <h1>Create Account</h1>
-        <p>Join us and start managing your <br/> business effortlessly.</p>
+        <p>Join us and start uploading images</p>
         
         <form>
           <div className="form-group">
@@ -18,7 +20,7 @@ export default function Register() {
         </form>
 
         <div className="auth-footer">
-          Already have an account? <span className="auth-link">Sign in</span>
+          Already have an account? <Link to="/login" className="auth-link">Sign in</Link>
         </div>
       </div>
     </div>
