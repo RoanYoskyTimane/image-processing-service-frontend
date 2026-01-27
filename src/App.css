@@ -1,6 +1,6 @@
 /* App.css */
 :root {
-  --primary: #FD8A6B; /* From your palette */
+  --primary: #FD8A6B;
   --primary-hover: #FA5C5C;
   --bg-soft: #fdfaf5; /* Creamy background from image */
   --text-main: #1a1a1a;
@@ -64,7 +64,7 @@
 .auth-button {
   width: 100%;
   padding: 14px;
-  background-color: #FEC288; /* Your palette */
+  background-color: #FEC288; 
   border: none;
   border-radius: 8px;
   color: var(--text-main);
