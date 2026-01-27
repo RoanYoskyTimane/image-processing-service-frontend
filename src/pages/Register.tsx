@@ -5,6 +5,7 @@ export default function Register() {
     <div className="auth-container">
       <div className="auth-card">
         <h1>Create Account</h1>
+        <p>Join us and start managing your <br/> business effortlessly.</p>
         
         <form>
           <div className="form-group">
