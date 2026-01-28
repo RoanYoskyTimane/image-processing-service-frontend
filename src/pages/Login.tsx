@@ -1,5 +1,5 @@
 import "../App.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import { useState, type FormEvent } from "react";
 
@@ -8,6 +8,7 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
@@ -22,6 +23,7 @@ export default function Login() {
 
       localStorage.setItem("token", token);
       console.log("Welcome back: ", userDto.username);
+      navigate("/dashboard");
     }catch (err: any) {
       setError(err.response?.data?.message || "Invalid credentials. Please try again.");
     }

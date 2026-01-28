@@ -1,5 +1,5 @@
 import "../App.css";
-import { Link , Navigate} from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import { useState, type FormEvent } from "react";
 import api from "../api/axios";
 
@@ -7,6 +7,7 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   
   const handleRegister = async (e: FormEvent) => {
@@ -16,7 +17,7 @@ export default function Register() {
       const {token, userDto} = response.data;
 
       localStorage.setItem("token", token);
-      
+      navigate("/dashboard");
     } catch (err: any) {
       setError("Registration failed. Try a different username.");
     }
