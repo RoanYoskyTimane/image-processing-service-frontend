@@ -1,19 +1,47 @@
 import "../App.css";
 import { Link } from "react-router-dom";
+import api from "../api/axios";
+import { useState, type FormEvent } from "react";
+
 
 export default function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = async (e: FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await api.post("/login", {
+        username,
+        password,
+      });
+
+      const {token, userDto} = response.data;
+
+      localStorage.setItem("token", token);
+      console.log("Welcome back: ", userDto.username);
+    }catch (err: any) {
+      setError(err.response?.data?.message || "Invalid credentials. Please try again.");
+    }
+  };
+
   return (
     <div className="auth-container">
       <div className="auth-card">
         <h1>Login</h1>
         <p>Hey, Enter your details to get sign in <br/> to your account</p>
         
-        <form>
+        {error && <p style={{ color: "#FA5C5C", fontWeight: "bold" }}>{error}</p>}
+
+        <form onSubmit={handleLogin}>
           <div className="form-group">
             <input 
-              className="input-field" 
-              type="email" 
-              placeholder="Enter Email / Phone No" 
+              className="input-field"  
+              placeholder="Enter Email or Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)} 
             />
           </div>
           
@@ -21,7 +49,9 @@ export default function Login() {
             <input 
               className="input-field" 
               type="password" 
-              placeholder="Passcode" 
+              placeholder="Password" 
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
