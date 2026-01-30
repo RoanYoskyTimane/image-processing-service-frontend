@@ -1,0 +1,60 @@
+.settings-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.settings-group {
+  margin-bottom: 20px;
+}
+
+.settings-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.format-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.format-btn {
+  padding: 8px 16px;
+  border: 1px solid #eee;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.format-btn.active {
+  border-color: #FD8A6B;
+  background-color: #fff9f7;
+  color: #FD8A6B;
+  font-weight: 600;
+}
+
+.process-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #1a1a1a; /* Dark contrast like screenshot */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.process-btn:hover {
+  background-color: #333;
+}
