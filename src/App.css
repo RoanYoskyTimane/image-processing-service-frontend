@@ -91,3 +91,20 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontally centers children */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Ensures the cropper doesn't overflow on small screens */
+.cropper-wrapper, .settings-card {
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
