@@ -1,9 +1,13 @@
 import React, { useState, useRef } from 'react';
 import './ImageUploader.css';
 
-export default function ImageUploader() {
+// Added interface for the props
+interface ImageUploaderProps {
+  onFileSelect: (file: File) => void;
+}
+
+export default function ImageUploader({ onFileSelect }: ImageUploaderProps) {
   const [isDragging, setIsDragging] = useState(false);
-  const [file, setFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleDrag = (e: React.DragEvent) => {
@@ -22,13 +26,14 @@ export default function ImageUploader() {
     setIsDragging(false);
     
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      setFile(e.dataTransfer.files[0]);
+      const file = e.dataTransfer.files[0];
+      onFileSelect(file); // Passing the file to the Dashboard
     }
   };
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
+      onFileSelect(e.target.files[0]); // Passing the file to the Dashboard
     }
   };
 
@@ -55,8 +60,6 @@ export default function ImageUploader() {
         />
         
         <button className="select-btn">Select File</button>
-        
-        {file && <div className="file-info">Selected: {file.name}</div>}
       </div>
     </div>
   );
